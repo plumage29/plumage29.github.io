@@ -79,21 +79,22 @@
 
 
 
-<meta name="description" content="跟github連線存取資料有兩種連線方式，分別是https和ssh， 使用https連線的話每次push都需要輸入帳號密碼， 如果使用ssh連線的話可以立刻上傳就不需要每次都輸入帳號密碼。 SSH連線運作方式 圖片來源:GitHub public key authentication  Client端送出SSH連線給Server Server回傳隨機的訊息 Client端會使用私鑰進行加密 Cli">
+<meta name="description" content="跟github連線存取資料有兩種連線方式，分別是https和ssh， 使用https連線的話每次push都需要輸入帳號密碼， 如果使用ssh連線的話可以立刻上傳就不需要每次都輸入帳號密碼。">
 <meta name="keywords" content="git,github,ssh">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[GIT] 設定SSH金鑰與Github連線">
 <meta property="og:url" content="http://plumage29.github.io/git/2019/10/13/connect-github-using-ssh/index.html">
 <meta property="og:site_name" content="Pluamge的Blog">
-<meta property="og:description" content="跟github連線存取資料有兩種連線方式，分別是https和ssh， 使用https連線的話每次push都需要輸入帳號密碼， 如果使用ssh連線的話可以立刻上傳就不需要每次都輸入帳號密碼。 SSH連線運作方式 圖片來源:GitHub public key authentication  Client端送出SSH連線給Server Server回傳隨機的訊息 Client端會使用私鑰進行加密 Cli">
+<meta property="og:description" content="跟github連線存取資料有兩種連線方式，分別是https和ssh， 使用https連線的話每次push都需要輸入帳號密碼， 如果使用ssh連線的話可以立刻上傳就不需要每次都輸入帳號密碼。">
 <meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="http://plumage29.github.io/git/2019/10/13/connect-github-using-ssh/ssh-connection-explained.png">
 <meta property="og:image" content="http://plumage29.github.io/git/2019/10/13/connect-github-using-ssh/gen-ssh-key-1.png">
-<meta property="og:image" content="http://plumage29.github.io/git/2019/10/13/connect-github-using-ssh/gen-ssh-key-1.png">
-<meta property="og:updated_time" content="2019-10-13T12:55:53.703Z">
+<meta property="og:image" content="http://plumage29.github.io/git/2019/10/13/connect-github-using-ssh/github-ssh.png">
+<meta property="og:updated_time" content="2019-10-13T13:16:58.062Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[GIT] 設定SSH金鑰與Github連線">
-<meta name="twitter:description" content="跟github連線存取資料有兩種連線方式，分別是https和ssh， 使用https連線的話每次push都需要輸入帳號密碼， 如果使用ssh連線的話可以立刻上傳就不需要每次都輸入帳號密碼。 SSH連線運作方式 圖片來源:GitHub public key authentication  Client端送出SSH連線給Server Server回傳隨機的訊息 Client端會使用私鑰進行加密 Cli">
-<meta name="twitter:image" content="http://plumage29.github.io/git/2019/10/13/connect-github-using-ssh/gen-ssh-key-1.png">
+<meta name="twitter:description" content="跟github連線存取資料有兩種連線方式，分別是https和ssh， 使用https連線的話每次push都需要輸入帳號密碼， 如果使用ssh連線的話可以立刻上傳就不需要每次都輸入帳號密碼。">
+<meta name="twitter:image" content="http://plumage29.github.io/git/2019/10/13/connect-github-using-ssh/ssh-connection-explained.png">
 
 
 
@@ -380,8 +381,13 @@
         <p>跟github連線存取資料有兩種連線方式，分別是https和ssh，</p>
 <p>使用https連線的話每次push都需要輸入帳號密碼，</p>
 <p>如果使用ssh連線的話可以立刻上傳就不需要每次都輸入帳號密碼。</p>
-<h3 id="SSH連線運作方式"><a href="#SSH連線運作方式" class="headerlink" title="SSH連線運作方式"></a>SSH連線運作方式</h3><img src="/git/2019/10/13/connect-github-using-ssh/gen-ssh-key-1.png" title="title">
-<p>圖片來源:<a href="https://sebastien.saunier.me/blog/2015/05/10/github-public-key-authentication.html" target="_blank" rel="noopener">GitHub public key authentication</a></p>
+<a id="more"></a>
+
+<h3 id="SSH連線運作方式"><a href="#SSH連線運作方式" class="headerlink" title="SSH連線運作方式"></a>SSH連線運作方式</h3><img src="/git/2019/10/13/connect-github-using-ssh/ssh-connection-explained.png">
+<p style="text-align:right">
+    <a href="https://sebastien.saunier.me/blog/2015/05/10/github-public-key-authentication.html" target="_blank" rel="noopener">圖片來源:GitHub public key authentication</a>
+ </p>
+
 <ol>
 <li>Client端送出SSH連線給Server</li>
 <li>Server回傳隨機的訊息</li>
@@ -393,9 +399,9 @@
 <h3 id="產生金鑰"><a href="#產生金鑰" class="headerlink" title="產生金鑰"></a>產生金鑰</h3><p>使用下列指令產生金鑰</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;your email address&quot;</span><br><span class="line"></span><br><span class="line">-t: key的類型</span><br><span class="line">-b: 多少bits的key</span><br><span class="line">-C: 提供給key的註解也可以當作label，這裡我使用個人的電子信箱</span><br></pre></td></tr></table></figure>
 
+<p>接著會詢問放置金鑰的位置</p>
 <img src="/git/2019/10/13/connect-github-using-ssh/gen-ssh-key-1.png">
 
-<p>接著會詢問放置金鑰的位置，</p>
 <p>預設的位置會在/home/user/.ssh，</p>
 <p>如果沒有要更改直接輸入enter跳過，</p>
 <p>接著會要求輸入密碼，</p>
@@ -409,6 +415,8 @@
 
 <p>最後我們要將剛剛產生的金鑰放在github上，</p>
 <p>登入github上之後找到setting&gt;SSH and GPG keys，</p>
+<img src="/git/2019/10/13/connect-github-using-ssh/github-ssh.png">
+
 <p>選擇New SSH Key</p>
 <p>title的部份可以自行填寫方便記憶這是哪一台電腦的key的名稱，例如：work Laptop</p>
 <p>key的部份要把剛剛產生的公鑰複製貼上，</p>
@@ -425,11 +433,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin git@github.com:USERNAME/OTHERREPOSITORY.git</span><br></pre></td></tr></table></figure>
 
 
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><p>Git 更換遠端伺服器倉庫網址URL</p>
-<p>使用 SSH 金鑰與 GitHub 連線</p>
-<p>[Git] 建立 ssh 設定</p>
-<p>GitHub public key authentication</p>
-<p>伺服器上的 Git - 生成 SSH 公開金鑰</p>
+
+<p><strong>參考資料</strong>:<br>1.<a href="https://gist.github.com/fokayx/255b228ded2bca1c4f60" target="_blank" rel="noopener">Git 更換遠端伺服器倉庫網址URL</a><br>2.<a href="https://andy6804tw.github.io/2018/03/22/github-ssh/#2-%E8%A8%AD%E5%AE%9A%E9%87%91%E9%91%B0%E4%BB%A3%E7%90%86" target="_blank" rel="noopener">使用 SSH 金鑰與 GitHub 連線</a><br>3.<a href="http://henrick168-blog.logdown.com/posts/736708-git-set-up-ssh-settings" target="_blank" rel="noopener">[Git] 建立 ssh 設定</a><br>4.<a href="https://sebastien.saunier.me/blog/2015/05/10/github-public-key-authentication.html" target="_blank" rel="noopener">GitHub public key authentication</a><br>5.<a href="https://git-scm.com/book/zh-tw/v1/%E4%BC%BA%E6%9C%8D%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%96%8B%E9%87%91%E9%91%B0" target="_blank" rel="noopener">伺服器上的 Git - 生成 SSH 公開金鑰</a></p>
 
       
     </div>
@@ -616,7 +621,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SSH連線運作方式"><span class="nav-number">1.</span> <span class="nav-text">SSH連線運作方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#產生金鑰"><span class="nav-number">2.</span> <span class="nav-text">產生金鑰</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#設定金鑰代理"><span class="nav-number">3.</span> <span class="nav-text">設定金鑰代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#備註"><span class="nav-number">4.</span> <span class="nav-text">備註</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number"></span> <span class="nav-text">Reference:</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SSH連線運作方式"><span class="nav-number">1.</span> <span class="nav-text">SSH連線運作方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#產生金鑰"><span class="nav-number">2.</span> <span class="nav-text">產生金鑰</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#設定金鑰代理"><span class="nav-number">3.</span> <span class="nav-text">設定金鑰代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#備註"><span class="nav-number">4.</span> <span class="nav-text">備註</span></a></li></ol></div>
             
 
           </div>
