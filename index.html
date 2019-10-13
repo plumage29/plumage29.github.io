@@ -271,6 +271,210 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://plumage29.github.io/git/2019/10/13/connect-github-using-ssh/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="plumage">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/plumage.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pluamge的Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/git/2019/10/13/connect-github-using-ssh/" itemprop="url">[GIT] 設定SSH金鑰與Github連線</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-10-13T16:44:10+08:00">
+                2019-10-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/git/" itemprop="url" rel="index">
+                    <span itemprop="name">git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/git/2019/10/13/connect-github-using-ssh/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="git/2019/10/13/connect-github-using-ssh/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>跟github連線存取資料有兩種連線方式，分別是https和ssh，</p>
+<p>使用https連線的話每次push都需要輸入帳號密碼，</p>
+<p>如果使用ssh連線的話可以立刻上傳就不需要每次都輸入帳號密碼。</p>
+<h3 id="SSH連線運作方式"><a href="#SSH連線運作方式" class="headerlink" title="SSH連線運作方式"></a>SSH連線運作方式</h3><img src="/git/2019/10/13/connect-github-using-ssh/gen-ssh-key-1.png" title="title">
+<p>圖片來源:<a href="https://sebastien.saunier.me/blog/2015/05/10/github-public-key-authentication.html" target="_blank" rel="noopener">GitHub public key authentication</a></p>
+<ol>
+<li>Client端送出SSH連線給Server</li>
+<li>Server回傳隨機的訊息</li>
+<li>Client端會使用私鑰進行加密</li>
+<li>Client端再把加密後的訊息回傳至Server</li>
+<li>Server使用公鑰解密</li>
+<li>訊息相同表示驗證成功</li>
+</ol>
+<h3 id="產生金鑰"><a href="#產生金鑰" class="headerlink" title="產生金鑰"></a>產生金鑰</h3><p>使用下列指令產生金鑰</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;your email address&quot;</span><br><span class="line"></span><br><span class="line">-t: key的類型</span><br><span class="line">-b: 多少bits的key</span><br><span class="line">-C: 提供給key的註解也可以當作label，這裡我使用個人的電子信箱</span><br></pre></td></tr></table></figure>
+
+<img src="/git/2019/10/13/connect-github-using-ssh/gen-ssh-key-1.png">
+
+<p>接著會詢問放置金鑰的位置，</p>
+<p>預設的位置會在/home/user/.ssh，</p>
+<p>如果沒有要更改直接輸入enter跳過，</p>
+<p>接著會要求輸入密碼，</p>
+<p>如果沒有要設定密碼也可以直接輸入enter跳過，</p>
+<p>接著金鑰就產生完成可以在.ssh目錄下看到id_rsa及id_rsa_pub。</p>
+<h3 id="設定金鑰代理"><a href="#設定金鑰代理" class="headerlink" title="設定金鑰代理"></a>設定金鑰代理</h3><p>先使用下列指令開啟SSH代理伺服器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eval &quot;$(ssh-agent -s)&quot;</span><br></pre></td></tr></table></figure>
+
+<p>接著將我們剛剛產生的金鑰加入到SSH代理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+
+<p>最後我們要將剛剛產生的金鑰放在github上，</p>
+<p>登入github上之後找到setting&gt;SSH and GPG keys，</p>
+<p>選擇New SSH Key</p>
+<p>title的部份可以自行填寫方便記憶這是哪一台電腦的key的名稱，例如：work Laptop</p>
+<p>key的部份要把剛剛產生的公鑰複製貼上，</p>
+<p>儲存之後就完成設定，</p>
+<p>之後使用git push就可以使用ssh 連線不用輸入密碼，</p>
+<p>可以使用下列指令測試是否可以順利連線。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<h3 id="備註"><a href="#備註" class="headerlink" title="備註"></a>備註</h3><p>設定完SSH金鑰連線至github就不需要輸入密碼，</p>
+<p>如果設定完之後仍然被要求輸入帳號密碼，</p>
+<p>可以檢查是否使用到https連線而非ssh連線，</p>
+<p>使用 <code>git remote -v</code> 確認，</p>
+<p>接著可以使用下面的指令更改成ssh連線：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin git@github.com:USERNAME/OTHERREPOSITORY.git</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><p>Git 更換遠端伺服器倉庫網址URL</p>
+<p>使用 SSH 金鑰與 GitHub 連線</p>
+<p>[Git] 建立 ssh 設定</p>
+<p>GitHub public key authentication</p>
+<p>伺服器上的 Git - 生成 SSH 公開金鑰</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://plumage29.github.io/JavaScript/2019/09/18/javascript-weird-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -302,7 +506,7 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-09-18T09:49:24-04:00">
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-09-18T09:49:24+08:00">
                 2019-09-18
               </time>
             
@@ -511,7 +715,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -522,7 +726,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分類</span>
                 
               </div>
@@ -533,7 +737,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">標籤</span>
                 
               </div>
