@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="JavaScript,spread operator,rest operator,ES6,">
 
 
 
@@ -79,13 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Pluamge的Blog">
-<meta property="og:url" content="http://plumage29.github.io/tags/lexical-environments/index.html">
+<meta name="description" content="展開運算子和其餘運算子是ES6的新特性，都是使用三個點 ...的符號">
+<meta name="keywords" content="JavaScript,spread operator,rest operator,ES6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[ES6] 展開運算子(spread operator)與其餘運算子(rest operator)">
+<meta property="og:url" content="http://plumage29.github.io/uncategorized/2019/10/20/es6-spread-operator/index.html">
 <meta property="og:site_name" content="Pluamge的Blog">
+<meta property="og:description" content="展開運算子和其餘運算子是ES6的新特性，都是使用三個點 ...的符號">
 <meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2019-10-20T13:34:49.297Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Pluamge的Blog">
+<meta name="twitter:title" content="[ES6] 展開運算子(spread operator)與其餘運算子(rest operator)">
+<meta name="twitter:description" content="展開運算子和其餘運算子是ES6的新特性，都是使用三個點 ...的符號">
 
 
 
@@ -115,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://plumage29.github.io/tags/lexical-environments/">
+  <link rel="canonical" href="http://plumage29.github.io/uncategorized/2019/10/20/es6-spread-operator/">
 
 
 
 
 
-  <title>標籤: lexical environments | Pluamge的Blog</title>
+  <title>[ES6] 展開運算子(spread operator)與其餘運算子(rest operator) | Pluamge的Blog</title>
   
 
 
@@ -140,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -256,52 +261,206 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>lexical environments<small>標籤</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://plumage29.github.io/uncategorized/2019/10/20/es6-spread-operator/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="plumage">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/plumage.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pluamge的Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/JavaScript/2019/09/18/javascript-weird-1/" itemprop="url">
-              
-                <span itemprop="name">JavaScript全攻略(1) ： 語法解析器、執行環境與詞彙環境</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">[ES6] 展開運算子(spread operator)與其餘運算子(rest operator)</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-18T09:49:24+08:00" content="2019-09-18">
-          09-18
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-10-20T21:29:28+08:00">
+                2019-10-20
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/uncategorized/2019/10/20/es6-spread-operator/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="uncategorized/2019/10/20/es6-spread-operator/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>展開運算子和其餘運算子是ES6的新特性，<br>都是使用三個點 <code>...</code>的符號</p>
+<a id="more"></a>
+
+<h3 id="展開運算子-Spread-Operator"><a href="#展開運算子-Spread-Operator" class="headerlink" title="展開運算子(Spread Operator)"></a>展開運算子(Spread Operator)</h3><p>展開運算子的作用為將陣列展開成個別值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="built_in">console</span>.log(...arr) <span class="comment">// 1 2 3 4 5</span></span><br></pre></td></tr></table></figure>
+
+<p>展開運算子也可以拿來組合陣列取代<code>concat()</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">arr2 = [<span class="string">'A'</span>, <span class="string">'B'</span>, ...arr] <span class="comment">// ['A', 'B', 1, 2, 3, 4, 5]</span></span><br></pre></td></tr></table></figure>
+
+<p>或是運用於陣列的拷貝</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">arr2 = [...arr] <span class="comment">// [1, 2, ,3 , 4, 5]</span></span><br></pre></td></tr></table></figure>
+
+<p>展開運算子也可以把可迭代(iterable)及陣列相似(Array-like)的物件轉成陣列</p>
+<ul>
+<li>可迭代物件： String, Array, Map, Set物件</li>
+<li>陣列相似： arguments</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">'helloworld'</span></span><br><span class="line"><span class="keyword">const</span> chars = [...str] <span class="comment">// [ 'h', 'e', 'l', 'l', 'o', 'w', 'o', 'r', 'l', 'd' ]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="其餘運算子-rest-Operator"><a href="#其餘運算子-rest-Operator" class="headerlink" title="其餘運算子(rest Operator)"></a>其餘運算子(rest Operator)</h3><p>其餘運算子有兩個運用的地方，<br>一個是在函式傳入參數定義的地方，<br>另一個是解構賦值。</p>
+<h4 id="其餘參數"><a href="#其餘參數" class="headerlink" title="其餘參數"></a>其餘參數</h4><p>當我們想要傳入不確定數量的參數到函式時，<br>就可以使用其餘運算子達到。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sum = <span class="function">(<span class="params">...nums</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> sum = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        sum += nums[i]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sum(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>) <span class="comment">//6</span></span><br><span class="line">sum(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>) <span class="comment">// 21</span></span><br></pre></td></tr></table></figure>
+
+<p>傳入的參數會被轉成陣列，<br>一個函式只能有一個其餘參數，且只能放在最後面，<br>如果沒有傳入則它的值會是空陣列<code>[]</code>。<br>使用其餘參數取代<code>arguments</code>，<br>因為<code>arguments</code>是類陣列而非真正的陣列，<br>可能會造成非預期的錯誤。</p>
+<h4 id="解構賦值-destructuring"><a href="#解構賦值-destructuring" class="headerlink" title="解構賦值(destructuring)"></a>解構賦值(destructuring)</h4><p>解構賦值也是ES6的新特性，<br>使用解構賦值可以將陣列裡的資料取出成獨立變數。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [a, b, c] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(b) <span class="comment">//2</span></span><br><span class="line"><span class="built_in">console</span>.log(c) <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+
+<p>其用法跟其餘參數類似：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [a, b, ...c] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(b) <span class="comment">//2</span></span><br><span class="line"><span class="built_in">console</span>.log(c) <span class="comment">//[3, 4, 5]</span></span><br></pre></td></tr></table></figure>
+
+<p>如果沒有給值一樣會得到空陣列</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [a, b, ..c] = [<span class="number">1</span>]</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(b) <span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(c) <span class="comment">//[]</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="建議撰寫風格"><a href="#建議撰寫風格" class="headerlink" title="建議撰寫風格"></a>建議撰寫風格</h4><ul>
+<li>使用其餘運算子代替函式裡的<code>arguments</code></li>
+<li>在其餘運算子及展開運算子後面緊接著識別名稱，不要加入空白</li>
+<li>使用展開運算子拷貝陣列</li>
+<li>使用展開運算子取代<code>concat</code>和<code>slice</code></li>
+</ul>
+<p><strong>參考資料</strong></p>
+<ol>
+<li><a href="https://pjchender.blogspot.com/2017/01/es6-spread-operatorrest-operator.html" target="_blank" rel="noopener">[筆記] JavaScript ES6 中的展開運算子（spread operator）和其餘運算子（rest operator）</a></li>
+<li><a href="https://eyesofkids.gitbooks.io/javascript-start-from-es6/content/part4/rest_spread.html" target="_blank" rel="noopener">展開運算符與其餘運算符</a></li>
+</ol>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/spread-operator/" rel="tag"># spread operator</a>
+          
+            <a href="/tags/rest-operator/" rel="tag"># rest operator</a>
+          
+            <a href="/tags/ES6/" rel="tag"># ES6</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/data-structure/2019/10/20/linked-list/" rel="next" title="[Data Structure] Linked List (連結串列)">
+                <i class="fa fa-chevron-left"></i> [Data Structure] Linked List (連結串列)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -309,6 +468,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -329,8 +502,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -392,6 +574,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#展開運算子-Spread-Operator"><span class="nav-number">1.</span> <span class="nav-text">展開運算子(Spread Operator)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其餘運算子-rest-Operator"><span class="nav-number">2.</span> <span class="nav-text">其餘運算子(rest Operator)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#其餘參數"><span class="nav-number">2.1.</span> <span class="nav-text">其餘參數</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解構賦值-destructuring"><span class="nav-number">2.2.</span> <span class="nav-text">解構賦值(destructuring)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#建議撰寫風格"><span class="nav-number">2.3.</span> <span class="nav-text">建議撰寫風格</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -539,6 +737,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -556,6 +758,18 @@
       <script id="dsq-count-scr" src="https://plumage29.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://plumage29.github.io/uncategorized/2019/10/20/es6-spread-operator/';
+          this.page.identifier = 'uncategorized/2019/10/20/es6-spread-operator/';
+          this.page.title = '[ES6] 展開運算子(spread operator)與其餘運算子(rest operator)';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://plumage29.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
