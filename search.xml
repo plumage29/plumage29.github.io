@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>[JS筆記] 執行環境:創造與提升</title>
+      <link href="/JavaScript/2019/11/11/javascript-weird-3/"/>
+      <url>/JavaScript/2019/11/11/javascript-weird-3/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Hoisting"><a href="#Hoisting" class="headerlink" title="Hoisting"></a>Hoisting</h3><p>我們先來看一段程式碼:</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">"Hello wolrd!"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Called b!'</span>);</span><br><span class="line">&#125;</span><br><span class="line">b();</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br></pre></td></tr></table></figure><p>在這裏我們宣告了變數<code>a</code>及<code>function b</code>並執行function b且印出變數a，</p><p>我們可以預期印出的結果為:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Called b!</span><br><span class="line">Hello World!</span><br></pre></td></tr></table></figure><p>但如果在宣告之前先執行function b並印出變數a會得到什麼結果呢?</p><a id="more"></a><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">b();</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="string">"Hello wolrd!"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Called b!'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>大部分的程式會因為還沒宣告function b就已經執行上列程式碼而產生error，</p><p>但在JavaScript執行並不會產生error，</p><p>其執行結果會如下:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Called b!</span><br><span class="line">undefined</span><br></pre></td></tr></table></figure><p>而這個現象稱為<code>Hoisting(提升)</code>。</p><hr><p>在解釋Hoisting之前我們先來瞭解JavaScript的執行環境創造，</p><p>JavaScript的執行環境被分成兩階段創造，</p><h3 id="創造階段"><a href="#創造階段" class="headerlink" title="創造階段"></a>創造階段</h3><p>第一階段是<code>創造(creation)階段</code>，</p><p>在這個階段會創造全域物件和this變數在記憶體中以及創造外部環境。</p><p>當語法解析器開始執行程式碼時它會知道變數和函數在哪裡創造，</p><p>在逐行執行程式之前JavaScript會為變數在記憶體中建立一個空間，</p><p>所以變數和函式已經存在於記憶體當中，</p><p>因此當程式逐行執行時就可以找到他們。</p><blockquote><p>Hoisting : Setup Memory Space for variables and functions</p></blockquote><p>但函式和變數又有些不同，</p><p>在第一階段函式已經全部放入記憶體中，</p><p>代表它的內容已經被執行，</p><p>但JavaScript為變數預留記憶體位置時並不知道他的值是多少，</p><p>因此給予<code>undefined</code>這個特殊值，</p><p>所有JavaScript的變數一開始都被設定為undefined。</p><blockquote><p>undefined : JavaScript內建的特殊值(special keyword)這跟從未宣告變數不同。</p></blockquote><p>永遠不要將變數值設為undefined，</p><p>在除錯時你會搞不清楚是自己設定為undefined或JavaScript設定為undefined，</p><p>讓undefined表示”我從未設定這個值”。</p><h3 id="執行階段"><a href="#執行階段" class="headerlink" title="執行階段"></a>執行階段</h3><p>而第二階段為執行階段，</p><p>在此階段程式碼將會被逐行執行。</p><p>這時候變數的值就會被放入記憶體中。</p><p>-</p><p>這就是為什麼我們可以在函式宣告前呼叫他，</p><p>在變數宣告前會拿到<code>undefined</code>的原因了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> JavaScript </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JavaScript </tag>
+            
+            <tag> hoisting </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[JS筆記] 全域環境與全域物件</title>
       <link href="/JavaScript/2019/11/05/javascript-weird-2/"/>
       <url>/JavaScript/2019/11/05/javascript-weird-2/</url>

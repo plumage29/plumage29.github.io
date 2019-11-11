@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="JavaScript,hoisting,">
 
 
 
@@ -79,13 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Pluamge的Blog">
-<meta property="og:url" content="http://plumage29.github.io/tags/ES6/index.html">
+<meta name="description" content="Hoisting我們先來看一段程式碼: 123456var a = &quot;Hello wolrd!&quot;;function b()&amp;#123;    console.log(&apos;Called b!&apos;);&amp;#125;b();console.log(a);  在這裏我們宣告了變數a及function b並執行function b且印出變數a， 我們可以預期印出的結果為: 12Called b!Hello Wor">
+<meta name="keywords" content="JavaScript,hoisting">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[JS筆記] 執行環境:創造與提升">
+<meta property="og:url" content="http://plumage29.github.io/JavaScript/2019/11/11/javascript-weird-3/index.html">
 <meta property="og:site_name" content="Pluamge的Blog">
+<meta property="og:description" content="Hoisting我們先來看一段程式碼: 123456var a = &quot;Hello wolrd!&quot;;function b()&amp;#123;    console.log(&apos;Called b!&apos;);&amp;#125;b();console.log(a);  在這裏我們宣告了變數a及function b並執行function b且印出變數a， 我們可以預期印出的結果為: 12Called b!Hello Wor">
 <meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2019-11-11T14:06:01.480Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Pluamge的Blog">
+<meta name="twitter:title" content="[JS筆記] 執行環境:創造與提升">
+<meta name="twitter:description" content="Hoisting我們先來看一段程式碼: 123456var a = &quot;Hello wolrd!&quot;;function b()&amp;#123;    console.log(&apos;Called b!&apos;);&amp;#125;b();console.log(a);  在這裏我們宣告了變數a及function b並執行function b且印出變數a， 我們可以預期印出的結果為: 12Called b!Hello Wor">
 
 
 
@@ -115,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://plumage29.github.io/tags/ES6/">
+  <link rel="canonical" href="http://plumage29.github.io/JavaScript/2019/11/11/javascript-weird-3/">
 
 
 
 
 
-  <title>標籤: ES6 | Pluamge的Blog</title>
+  <title>[JS筆記] 執行環境:創造與提升 | Pluamge的Blog</title>
   
 
 
@@ -140,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -256,52 +261,228 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>ES6<small>標籤</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://plumage29.github.io/JavaScript/2019/11/11/javascript-weird-3/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="plumage">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/plumage.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pluamge的Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/uncategorized/2019/10/20/es6-spread-operator/" itemprop="url">
-              
-                <span itemprop="name">[ES6] 展開運算子(spread operator)與其餘運算子(rest operator)</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">[JS筆記] 執行環境:創造與提升</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-10-20T21:29:28+08:00" content="2019-10-20">
-          10-20
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-11-11T21:38:08+08:00">
+                2019-11-11
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/JavaScript/2019/11/11/javascript-weird-3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="JavaScript/2019/11/11/javascript-weird-3/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Hoisting"><a href="#Hoisting" class="headerlink" title="Hoisting"></a>Hoisting</h3><p>我們先來看一段程式碼:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">"Hello wolrd!"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Called b!'</span>);</span><br><span class="line">&#125;</span><br><span class="line">b();</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br></pre></td></tr></table></figure>
+
+<p>在這裏我們宣告了變數<code>a</code>及<code>function b</code>並執行function b且印出變數a，</p>
+<p>我們可以預期印出的結果為:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Called b!</span><br><span class="line">Hello World!</span><br></pre></td></tr></table></figure>
+
+<p>但如果在宣告之前先執行function b並印出變數a會得到什麼結果呢?</p>
+<a id="more"></a>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">b();</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="string">"Hello wolrd!"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Called b!'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>大部分的程式會因為還沒宣告function b就已經執行上列程式碼而產生error，</p>
+<p>但在JavaScript執行並不會產生error，</p>
+<p>其執行結果會如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Called b!</span><br><span class="line">undefined</span><br></pre></td></tr></table></figure>
+
+<p>而這個現象稱為<code>Hoisting(提升)</code>。</p>
+<hr>
+<p>在解釋Hoisting之前我們先來瞭解JavaScript的執行環境創造，</p>
+<p>JavaScript的執行環境被分成兩階段創造，</p>
+<h3 id="創造階段"><a href="#創造階段" class="headerlink" title="創造階段"></a>創造階段</h3><p>第一階段是<code>創造(creation)階段</code>，</p>
+<p>在這個階段會創造全域物件和this變數在記憶體中以及創造外部環境。</p>
+<p>當語法解析器開始執行程式碼時它會知道變數和函數在哪裡創造，</p>
+<p>在逐行執行程式之前JavaScript會為變數在記憶體中建立一個空間，</p>
+<p>所以變數和函式已經存在於記憶體當中，</p>
+<p>因此當程式逐行執行時就可以找到他們。</p>
+<blockquote>
+<p>Hoisting : Setup Memory Space for variables and functions</p>
+</blockquote>
+<p>但函式和變數又有些不同，</p>
+<p>在第一階段函式已經全部放入記憶體中，</p>
+<p>代表它的內容已經被執行，</p>
+<p>但JavaScript為變數預留記憶體位置時並不知道他的值是多少，</p>
+<p>因此給予<code>undefined</code>這個特殊值，</p>
+<p>所有JavaScript的變數一開始都被設定為undefined。</p>
+<blockquote>
+<p>undefined : JavaScript內建的特殊值(special keyword)這跟從未宣告變數不同。</p>
+</blockquote>
+<p>永遠不要將變數值設為undefined，</p>
+<p>在除錯時你會搞不清楚是自己設定為undefined或JavaScript設定為undefined，</p>
+<p>讓undefined表示”我從未設定這個值”。</p>
+<h3 id="執行階段"><a href="#執行階段" class="headerlink" title="執行階段"></a>執行階段</h3><p>而第二階段為執行階段，</p>
+<p>在此階段程式碼將會被逐行執行。</p>
+<p>這時候變數的值就會被放入記憶體中。</p>
+<p>-</p>
+<p>這就是為什麼我們可以在函式宣告前呼叫他，</p>
+<p>在變數宣告前會拿到<code>undefined</code>的原因了。</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/hoisting/" rel="tag"># hoisting</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/JavaScript/2019/11/05/javascript-weird-2/" rel="next" title="[JS筆記] 全域環境與全域物件">
+                <i class="fa fa-chevron-left"></i> [JS筆記] 全域環境與全域物件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -309,6 +490,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -329,8 +524,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -392,6 +596,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hoisting"><span class="nav-number">1.</span> <span class="nav-text">Hoisting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#創造階段"><span class="nav-number">2.</span> <span class="nav-text">創造階段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#執行階段"><span class="nav-number">3.</span> <span class="nav-text">執行階段</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -539,6 +759,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -556,6 +780,18 @@
       <script id="dsq-count-scr" src="https://plumage29.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://plumage29.github.io/JavaScript/2019/11/11/javascript-weird-3/';
+          this.page.identifier = 'JavaScript/2019/11/11/javascript-weird-3/';
+          this.page.title = '[JS筆記] 執行環境:創造與提升';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://plumage29.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
