@@ -373,29 +373,18 @@
 
       
         
-          
-            <h3 id="函式呼叫-function-invocation"><a href="#函式呼叫-function-invocation" class="headerlink" title="函式呼叫(function invocation)"></a>函式呼叫(function invocation)</h3><blockquote>
-<p>invocation:running a function (呼叫或執行函數)</p>
+          <h3 id="函式呼叫-function-invocation"><a href="#函式呼叫-function-invocation" class="headerlink" title="函式呼叫(function invocation)"></a>函式呼叫(function invocation)</h3><blockquote>
+<p>invocation:running a function</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    b();</span><br><span class="line">&#125;</span><br><span class="line">a();</span><br></pre></td></tr></table></figure>
-
-<h3 id="執行堆-execution-stack"><a href="#執行堆-execution-stack" class="headerlink" title="執行堆(execution stack)"></a>執行堆(execution stack)</h3><p>上述的程式碼會先創造Global Execution Context，</p>
-<p>並創造變數this及全域物件。</p>
-<p>接著將函數放進記憶體中，而在創造階段函式b、a都被放入記憶體中，</p>
-<p>第二階段開始逐行執行程式碼，</p>
-<p>當執行了 <code>function a</code>時一個新的執行環境被創造，</p>
-<p>且放入執行堆中並且如同創建全域執行環境的步驟一樣，</p>
-<p><code>function a</code>的執行環境有自己的記憶體空間放變數和函式，</p>
-<p>並設置記憶體中的位置再逐行執行。</p>
-<img src="/JavaScript/2019/11/24/javascript-weird-5/execution-stack.png">
-
-
-<p>在逐行執行時如果呼叫了其他的函式便會停止執行程式並創造另一個執行環境，</p>
-<p>每個函式都會創建一個執行環境，且經歷創造階段並逐行執行程式。</p>
-<p>函式結束後就會離開(pop)執行堆，</p>
-<p>而執行堆中最上面的就是正在執行的東西。</p>
-
-          
+<p>它代表的意思是呼叫或執行函數，</p>
+<p>因此當我們說function invocation代表執行了這個函式。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/JavaScript/2019/11/24/javascript-weird-5/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1590,7 +1579,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">標籤</span>
                 
               </div>
