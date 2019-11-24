@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="JavaScript,single threaded,synchronous execution,">
 
 
 
@@ -79,13 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="plumage">
-<meta property="og:url" content="http://plumage29.github.io/tags/global-object/index.html">
+<meta name="description" content="單執行緒 單執行緒(single threaded):one command at a time  單執行緒表示一次只執行一個指令， JavaScript 一次只作一件事情。 同步執行 同步執行(synchronous execution): one at a time and in order. 對程式語言來說一次一個且照順序  而同步執行則表示對程式而言一次只執行一行且按照順序。 結論Java">
+<meta name="keywords" content="JavaScript,single threaded,synchronous execution">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[JS筆記] 單執行緒、同步執行">
+<meta property="og:url" content="http://plumage29.github.io/JavaScript/2019/11/19/javascript-weird-4/index.html">
 <meta property="og:site_name" content="plumage">
+<meta property="og:description" content="單執行緒 單執行緒(single threaded):one command at a time  單執行緒表示一次只執行一個指令， JavaScript 一次只作一件事情。 同步執行 同步執行(synchronous execution): one at a time and in order. 對程式語言來說一次一個且照順序  而同步執行則表示對程式而言一次只執行一行且按照順序。 結論Java">
 <meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2019-11-24T13:14:20.519Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="plumage">
+<meta name="twitter:title" content="[JS筆記] 單執行緒、同步執行">
+<meta name="twitter:description" content="單執行緒 單執行緒(single threaded):one command at a time  單執行緒表示一次只執行一個指令， JavaScript 一次只作一件事情。 同步執行 同步執行(synchronous execution): one at a time and in order. 對程式語言來說一次一個且照順序  而同步執行則表示對程式而言一次只執行一行且按照順序。 結論Java">
 
 
 
@@ -115,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://plumage29.github.io/tags/global-object/">
+  <link rel="canonical" href="http://plumage29.github.io/JavaScript/2019/11/19/javascript-weird-4/">
 
 
 
 
 
-  <title>標籤: global object | plumage</title>
+  <title>[JS筆記] 單執行緒、同步執行 | plumage</title>
   
 
 
@@ -140,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -256,52 +261,199 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>global object<small>標籤</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://plumage29.github.io/JavaScript/2019/11/19/javascript-weird-4/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="plumage">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/plumage.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="plumage">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/JavaScript/2019/11/05/javascript-weird-2/" itemprop="url">
-              
-                <span itemprop="name">[JS筆記] 全域環境與全域物件</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">[JS筆記] 單執行緒、同步執行</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-11-05T21:59:06+08:00" content="2019-11-05">
-          11-05
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-11-19T23:24:07+08:00">
+                2019-11-19
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/JavaScript/2019/11/19/javascript-weird-4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="JavaScript/2019/11/19/javascript-weird-4/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="單執行緒"><a href="#單執行緒" class="headerlink" title="單執行緒"></a>單執行緒</h3><blockquote>
+<p>單執行緒(single threaded):one command at a time</p>
+</blockquote>
+<p>單執行緒表示一次只執行一個指令，</p>
+<p>JavaScript 一次只作一件事情。</p>
+<h3 id="同步執行"><a href="#同步執行" class="headerlink" title="同步執行"></a>同步執行</h3><blockquote>
+<p>同步執行(synchronous execution): one at a time and in order. 對程式語言來說一次一個且照順序</p>
+</blockquote>
+<p>而同步執行則表示對程式而言一次只執行一行且按照順序。</p>
+<h3 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h3><p>JavaScript是單執行緒且同步執行的， JavaScript一次只做一件事情。</p>
+<p>關於JavaScript的非同步請求後續會再繼續討論。</p>
+<hr>
+<p><strong>此系列爲線上課程：<a href="https://www.udemy.com/course/javascriptjs/" target="_blank" rel="noopener">JavaScript 全攻略：克服 JS 的奇怪部分</a>上課內容筆記</strong></p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/single-threaded/" rel="tag"># single threaded</a>
+          
+            <a href="/tags/synchronous-execution/" rel="tag"># synchronous execution</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/JavaScript/2019/11/11/javascript-weird-3/" rel="next" title="[JS筆記] 執行環境:創造與提升">
+                <i class="fa fa-chevron-left"></i> [JS筆記] 執行環境:創造與提升
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/JavaScript/2019/11/24/javascript-weird-5/" rel="prev" title="[JS筆記] 函式呼叫與執行堆">
+                [JS筆記] 函式呼叫與執行堆 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -309,6 +461,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -329,8 +495,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -392,6 +567,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#單執行緒"><span class="nav-number">1.</span> <span class="nav-text">單執行緒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同步執行"><span class="nav-number">2.</span> <span class="nav-text">同步執行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#結論"><span class="nav-number">3.</span> <span class="nav-text">結論</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -539,6 +730,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -556,6 +751,18 @@
       <script id="dsq-count-scr" src="https://plumage29.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://plumage29.github.io/JavaScript/2019/11/19/javascript-weird-4/';
+          this.page.identifier = 'JavaScript/2019/11/19/javascript-weird-4/';
+          this.page.title = '[JS筆記] 單執行緒、同步執行';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://plumage29.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
