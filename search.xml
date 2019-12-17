@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>[JS筆記] 函式、環境與變數環境</title>
+      <link href="/JavaScript/2019/12/01/javascript-weird-6/"/>
+      <url>/JavaScript/2019/12/01/javascript-weird-6/</url>
+      
+        <content type="html"><![CDATA[<h3 id="變數環境"><a href="#變數環境" class="headerlink" title="變數環境"></a>變數環境</h3><blockquote><p>variable environment: where the variables live and how they relate to each other in memory.</p></blockquote><blockquote><p>變數環境只是在描述你創造變數的位置跟它在記憶體中和其他變數的關係。</p></blockquote><p>同樣的我們先來看一段程式碼，<br>並且用這段程式碼來解釋環境變數。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> myVar;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> myVar = <span class="number">2</span>;</span><br><span class="line">    b();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> myVar = <span class="number">1</span>;</span><br><span class="line">a();</span><br></pre></td></tr></table></figure><p>當上述程式碼執行，全域執行環境會被創建且將myVar放入記憶體中，</p><p>對全域執行環境而言他的變數環境就是全域物件(例如瀏覽器的window)，</p><p>接著執行時會讓記憶體中的變數得到1這個值，</p><p>執行function a並創建function a的執行環境，</p><p>並將myVar放入這一個執行環境的變數環境中，</p><p>每個執行環境都有自己的變數環境。</p><p>接著創建b的執行環境且設置變數環境，</p><p>而myVar因為沒指定値所以為undefined。</p><img src="/JavaScript/2019/12/01/javascript-weird-6/variable-environment.png"><p>雖然有三個變數名稱都叫myVar的變數，</p><p>但每個執行環境都有不同的變數環境，</p><p>這三個myVar是不同、不一樣的變數且沒有關聯。</p><hr><p><strong>此系列爲線上課程：<a href="https://www.udemy.com/course/javascriptjs/" target="_blank" rel="noopener">JavaScript 全攻略：克服 JS 的奇怪部分</a>上課內容筆記</strong></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> JavaScript </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JavaScript </tag>
+            
+            <tag> variable environment </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[JS筆記] 函式呼叫與執行堆</title>
       <link href="/JavaScript/2019/11/24/javascript-weird-5/"/>
       <url>/JavaScript/2019/11/24/javascript-weird-5/</url>
