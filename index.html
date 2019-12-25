@@ -271,6 +271,165 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://plumage29.github.io/JavaScript/2019/12/17/javascript-weird-7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="plumage">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/plumage.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="plumage">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/JavaScript/2019/12/17/javascript-weird-7/" itemprop="url">[JS筆記] 範圍鏈</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-12-17T23:21:02+08:00">
+                2019-12-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/JavaScript/2019/12/17/javascript-weird-7/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="JavaScript/2019/12/17/javascript-weird-7/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="Scope-Chain-範圍鏈"><a href="#Scope-Chain-範圍鏈" class="headerlink" title="Scope Chain(範圍鏈)"></a>Scope Chain(範圍鏈)</h3><p>每個執行環境都有一個參照到它的外部環境(外部參照)，</p>
+<p>而外部參造會跟詞彙環境(程式碼實際寫在哪個位置)有所關聯。</p>
+<p>我們試著想看看下列的程式碼執行之後會印出什麼值呢？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(myVar);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> myVar = <span class="number">2</span>;</span><br><span class="line">    b();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> myVar = <span class="number">1</span>;</span><br><span class="line">a();</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/JavaScript/2019/12/17/javascript-weird-7/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://plumage29.github.io/JavaScript/2019/12/01/javascript-weird-6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -373,33 +532,22 @@
 
       
         
-          
-            <h3 id="變數環境"><a href="#變數環境" class="headerlink" title="變數環境"></a>變數環境</h3><blockquote>
+          <h3 id="變數環境"><a href="#變數環境" class="headerlink" title="變數環境"></a>變數環境</h3><blockquote>
 <p>variable environment: where the variables live and how they relate to each other in memory.</p>
 </blockquote>
 <blockquote>
 <p>變數環境只是在描述你創造變數的位置跟它在記憶體中和其他變數的關係。</p>
 </blockquote>
-<p>同樣的我們先來看一段程式碼，<br>並且用這段程式碼來解釋環境變數。</p>
+<p>我們先來看一段程式碼，</p>
+<p>並且用這段程式碼來解釋環境變數。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> myVar;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> myVar = <span class="number">2</span>;</span><br><span class="line">    b();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> myVar = <span class="number">1</span>;</span><br><span class="line">a();</span><br></pre></td></tr></table></figure>
-
-<p>當上述程式碼執行，全域執行環境會被創建且將myVar放入記憶體中，</p>
-<p>對全域執行環境而言他的變數環境就是全域物件(例如瀏覽器的window)，</p>
-<p>接著執行時會讓記憶體中的變數得到1這個值，</p>
-<p>執行function a並創建function a的執行環境，</p>
-<p>並將myVar放入這一個執行環境的變數環境中，</p>
-<p>每個執行環境都有自己的變數環境。</p>
-<p>接著創建b的執行環境且設置變數環境，</p>
-<p>而myVar因為沒指定値所以為undefined。</p>
-<img src="/JavaScript/2019/12/01/javascript-weird-6/variable-environment.png">
-
-<p>雖然有三個變數名稱都叫myVar的變數，</p>
-<p>但每個執行環境都有不同的變數環境，</p>
-<p>這三個myVar是不同、不一樣的變數且沒有關聯。</p>
-<hr>
-<p><strong>此系列爲線上課程：<a href="https://www.udemy.com/course/javascriptjs/" target="_blank" rel="noopener">JavaScript 全攻略：克服 JS 的奇怪部分</a>上課內容筆記</strong></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/JavaScript/2019/12/01/javascript-weird-6/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1732,7 +1880,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -1754,7 +1902,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">標籤</span>
                 
               </div>
