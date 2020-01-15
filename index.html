@@ -271,6 +271,135 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://plumage29.github.io/uncategorized/2020/01/15/javascript-weird-9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="plumage">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/plumage.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="plumage">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/uncategorized/2020/01/15/javascript-weird-9/" itemprop="url">javascript-weird-9</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-01-15T20:52:01+08:00">
+                2020-01-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/uncategorized/2020/01/15/javascript-weird-9/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="uncategorized/2020/01/15/javascript-weird-9/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://plumage29.github.io/uncategorized/2019/12/25/javascript-weird-8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -351,40 +480,19 @@
 
       
         
-          
-            <p>我們前面討論了執行環境、變數環境和詞彙環境，</p>
+          <p>我們前面討論了執行環境、變數環境和詞彙環境，</p>
 <p>而這些東西最終定義了範圍。</p>
-<h1 id="scope"><a href="#scope" class="headerlink" title="scope"></a>scope</h1><blockquote>
+<h3 id="scope"><a href="#scope" class="headerlink" title="scope"></a>scope</h3><blockquote>
 <p>scope:<br>where a variable is available in your code<br>And if it’s truly the same variable, or a new copy</p>
 </blockquote>
 <p><strong>範圍是變數可以被取用的區域。</strong></p>
-<p>如果我們呼叫相同的函式兩次，</p>
-<p>他們會有不同的執行環境，</p>
-<p>如果有兩個看起來相同的變數，</p>
-<p>實際上他們在記憶體中是兩個不同的變數。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> b = <span class="string">'hi'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">a();</span><br><span class="line">a();</span><br></pre></td></tr></table></figure>
-
-<p>例如上面的例子裡我們呼叫<code>a</code>兩次就會有兩個不同的執行環境，</p>
-<p>而裡面的變數<code>b</code>在兩次的呼叫中則是兩個不同的變數。</p>
-<h1 id="let"><a href="#let" class="headerlink" title="let"></a>let</h1><p>在ES6(ECMAScript 6/ECMAScript 2015)的JavaScript中引入了新的宣告變數方法: let</p>
-<p>let 的功能像var但不取代var，</p>
-<p>我們可以像<code>var</code>一樣的使用他。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (a &gt; b) &#123;</span><br><span class="line">   <span class="keyword">let</span> c = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>let有兩個跟var不同的地方:</p>
-<p>(1) 在執行階段它會被創造，</p>
-<p>變數會被放到記憶體中，</p>
-<p>但直到執行那一行真的宣告變數之後才能使用變數。</p>
-<p>例如上面的程式碼如果在<code>let c</code>之前使用<code>c</code>會得到錯誤訊息，</p>
-<p>變數<code>c</code>已經存放在記憶體中但不能使用，</p>
-<p>必須等到變數<code>c</code>在區塊中被宣告才能使用。</p>
-<p>(2)<code>let</code>的作用域為區塊範圍(block scoping)，</p>
-<p>當<code>let</code>在區塊中被宣告就只能在區塊裡面使用，</p>
-<p>區塊通常定義為大括號內({})，</p>
-<p>像<code>function</code>、<code>if</code> 或 <code>for</code>的大括號內。</p>
-<p><strong>此系列爲線上課程：<a href="https://www.udemy.com/course/javascriptjs/" target="_blank" rel="noopener">JavaScript 全攻略：克服 JS 的奇怪部分</a>上課內容筆記</strong></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/uncategorized/2019/12/25/javascript-weird-8/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1675,164 +1783,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://plumage29.github.io/git/2019/10/13/connect-github-using-ssh/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="plumage">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/plumage.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="plumage">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/git/2019/10/13/connect-github-using-ssh/" itemprop="url">[GIT] 設定SSH金鑰與Github連線</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-10-13T16:44:10+08:00">
-                2019-10-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/git/2019/10/13/connect-github-using-ssh/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="git/2019/10/13/connect-github-using-ssh/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>跟github連線存取資料有兩種連線方式，分別是https和ssh，</p>
-<p>使用https連線的話每次push都需要輸入帳號密碼，</p>
-<p>如果使用ssh連線的話可以立刻上傳就不需要每次都輸入帳號密碼。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/git/2019/10/13/connect-github-using-ssh/#more" rel="contents">
-              閱讀全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1885,7 +1835,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
