@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="JavaScript,execution context,global object,this,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,20 +79,13 @@
 
 
 
-<meta name="description" content="這一篇會討論JavaScript的全域執行環境以及全域執行環境裡兩個特別的東西全域物件及this">
-<meta name="keywords" content="JavaScript,execution context,global object,this">
-<meta property="og:type" content="article">
-<meta property="og:title" content="[JS筆記] 全域環境與全域物件">
-<meta property="og:url" content="http://plumage29.github.io/JavaScript/2019/11/05/javascript-weird-2/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="plumage">
+<meta property="og:url" content="http://plumage29.github.io/page/2/index.html">
 <meta property="og:site_name" content="plumage">
-<meta property="og:description" content="這一篇會討論JavaScript的全域執行環境以及全域執行環境裡兩個特別的東西全域物件及this">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:image" content="http://plumage29.github.io/JavaScript/2019/11/05/javascript-weird-2/execution-context.png">
-<meta property="og:updated_time" content="2019-11-19T15:21:28.342Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[JS筆記] 全域環境與全域物件">
-<meta name="twitter:description" content="這一篇會討論JavaScript的全域執行環境以及全域執行環境裡兩個特別的東西全域物件及this">
-<meta name="twitter:image" content="http://plumage29.github.io/JavaScript/2019/11/05/javascript-weird-2/execution-context.png">
+<meta name="twitter:title" content="plumage">
 
 
 
@@ -122,13 +115,13 @@
 
 
 
-  <link rel="canonical" href="http://plumage29.github.io/JavaScript/2019/11/05/javascript-weird-2/">
+  <link rel="canonical" href="http://plumage29.github.io/page/2/">
 
 
 
 
 
-  <title>[JS筆記] 全域環境與全域物件 | plumage</title>
+  <title>plumage</title>
   
 
 
@@ -147,7 +140,8 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -262,9 +256,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -277,7 +271,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://plumage29.github.io/JavaScript/2019/11/05/javascript-weird-2/">
+    <link itemprop="mainEntityOfPage" href="http://plumage29.github.io/JavaScript/2019/09/18/javascript-weird-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="plumage">
@@ -294,7 +288,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[JS筆記] 全域環境與全域物件</h1>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/JavaScript/2019/09/18/javascript-weird-1/" itemprop="url">[JS筆記] 語法解析器、執行環境與詞彙環境</a></h1>
         
 
         <div class="post-meta">
@@ -306,8 +302,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-11-05T21:59:06+08:00">
-                2019-11-05
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-09-18T09:49:24+08:00">
+                2019-09-18
               </time>
             
 
@@ -347,8 +343,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/JavaScript/2019/11/05/javascript-weird-2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="JavaScript/2019/11/05/javascript-weird-2/" itemprop="commentCount"></span>
+                <a href="/JavaScript/2019/09/18/javascript-weird-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="JavaScript/2019/09/18/javascript-weird-1/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -376,42 +372,19 @@
       
 
       
-        <p>這一篇會討論JavaScript的全域執行環境<br>以及全域執行環境裡兩個特別的東西全域物件及this</p>
-<a id="more"></a>
-
-<h3 id="全域執行環境"><a href="#全域執行環境" class="headerlink" title="全域執行環境"></a>全域執行環境</h3><p>不論何時執行JavaScript程式，它都在執行環境裡面執行，</p>
-<p>基礎的執行環境(basic execution context)就是指全域執行環境，</p>
-<p>而全域執行環境會創造兩個東西: <code>全域物件(global object)</code>和<code>this</code>。</p>
-<img src="/JavaScript/2019/11/05/javascript-weird-2/execution-context.png">
-
-
-
-<p>執行JavaScript時永遠會有一個全域物件，</p>
-<p>例如用瀏覽器執行JavaScript時會有一個window object代表瀏覽器的全域物件，</p>
-<p>一個視窗會有一個全域物件，</p>
-<p>所以開啟另一個分頁會有另一個全域物件，</p>
-<p>每個視窗都有自己的執行環境和自己的全域物件，</p>
-<p>在執行環境中JavaScript會自動創造一個變數<code>this</code>，</p>
-<p>當JavaScript的引擎創造執行環境的時候它也會決定this是什麼，</p>
-<p>在全域等級中的this等於<code>全域物件(Global Object)</code>，</p>
-<p>所以在瀏覽器裡的this會是window物件，</p>
-<p>但如果在Nodejs的伺服器上<code>this</code>就不會是window物件，</p>
-<p>全域物件只有在全域執行環境中，</p>
-<p>但this永遠在執行環境裡，</p>
-<p>關於this之後還會有更多的深入了解。</p>
-<h3 id="全域"><a href="#全域" class="headerlink" title="全域"></a>全域</h3><blockquote>
-<p>Global : Not inside a function</p>
-</blockquote>
-<blockquote>
-<p>對JavaScript而言，不在function裡的就是全域(Global)</p>
-</blockquote>
-<p>全域的意思就是代表不論我們在任何地方都可以取用它,</p>
-<p>在JavaScirpt裡只要不在函式裡(function)就是全域，</p>
-<p>當在全域等級執行就代表沒有外部環境，</p>
-<p>因為已經在最外面了。</p>
-<hr>
-<p><strong>此系列爲線上課程：<a href="https://www.udemy.com/course/javascriptjs/" target="_blank" rel="noopener">JavaScript 全攻略：克服 JS 的奇怪部分</a>上課內容筆記</strong></p>
-
+        
+          <p>第一篇先記錄一些關於JavaScript的名詞解釋,</p>
+<p>之後會不斷的遇到這些觀念,</p>
+<p>這些名詞聽起來好像很複雜其實都不難懂,</p>
+<p>因此我們先來瞭解這些名詞的意義吧！</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/JavaScript/2019/09/18/javascript-weird-1/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
       
     </div>
     
@@ -426,46 +399,14 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
-          
-            <a href="/tags/execution-context/" rel="tag"># execution context</a>
-          
-            <a href="/tags/global-object/" rel="tag"># global object</a>
-          
-            <a href="/tags/this/" rel="tag"># this</a>
-          
-        </div>
+
+      
+
       
 
       
       
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/uncategorized/2019/10/20/es6-spread-operator/" rel="next" title="[ES6] 展開運算子(spread operator)與其餘運算子(rest operator)">
-                <i class="fa fa-chevron-left"></i> [ES6] 展開運算子(spread operator)與其餘運算子(rest operator)
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/JavaScript/2019/11/11/javascript-weird-3/" rel="prev" title="[JS筆記] 執行環境:創造與提升">
-                [JS筆記] 執行環境:創造與提升 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -475,11 +416,14 @@
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
 
 
           </div>
@@ -487,20 +431,6 @@
 
 
           
-
-  
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    </div>
-
-  
-
-
 
         </div>
         
@@ -521,17 +451,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目錄
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            本站概覽
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -593,22 +514,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#全域執行環境"><span class="nav-number">1.</span> <span class="nav-text">全域執行環境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全域"><span class="nav-number">2.</span> <span class="nav-text">全域</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -756,10 +661,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
@@ -777,18 +678,6 @@
       <script id="dsq-count-scr" src="https://plumage29.disqus.com/count.js" async></script>
     
 
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'http://plumage29.github.io/JavaScript/2019/11/05/javascript-weird-2/';
-          this.page.identifier = 'JavaScript/2019/11/05/javascript-weird-2/';
-          this.page.title = '[JS筆記] 全域環境與全域物件';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://plumage29.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
     
 
   

@@ -271,6 +271,166 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://plumage29.github.io/uncategorized/2019/12/25/javascript-weird-8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="plumage">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/plumage.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="plumage">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/uncategorized/2019/12/25/javascript-weird-8/" itemprop="url">[JS筆記] 範圍、ES6與let</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-12-25T21:42:40+08:00">
+                2019-12-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/uncategorized/2019/12/25/javascript-weird-8/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="uncategorized/2019/12/25/javascript-weird-8/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>我們前面討論了執行環境、變數環境和詞彙環境，</p>
+<p>而這些東西最終定義了範圍。</p>
+<h1 id="scope"><a href="#scope" class="headerlink" title="scope"></a>scope</h1><blockquote>
+<p>scope:<br>where a variable is available in your code<br>And if it’s truly the same variable, or a new copy</p>
+</blockquote>
+<p><strong>範圍是變數可以被取用的區域。</strong></p>
+<p>如果我們呼叫相同的函式兩次，</p>
+<p>他們會有不同的執行環境，</p>
+<p>如果有兩個看起來相同的變數，</p>
+<p>實際上他們在記憶體中是兩個不同的變數。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> b = <span class="string">'hi'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">a();</span><br><span class="line">a();</span><br></pre></td></tr></table></figure>
+
+<p>例如上面的例子裡我們呼叫<code>a</code>兩次就會有兩個不同的執行環境，</p>
+<p>而裡面的變數<code>b</code>在兩次的呼叫中則是兩個不同的變數。</p>
+<h1 id="let"><a href="#let" class="headerlink" title="let"></a>let</h1><p>在ES6(ECMAScript 6/ECMAScript 2015)的JavaScript中引入了新的宣告變數方法: let</p>
+<p>let 的功能像var但不取代var，</p>
+<p>我們可以像<code>var</code>一樣的使用他。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (a &gt; b) &#123;</span><br><span class="line">   <span class="keyword">let</span> c = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>let有兩個跟var不同的地方:</p>
+<p>(1) 在執行階段它會被創造，</p>
+<p>變數會被放到記憶體中，</p>
+<p>但直到執行那一行真的宣告變數之後才能使用變數。</p>
+<p>例如上面的程式碼如果在<code>let c</code>之前使用<code>c</code>會得到錯誤訊息，</p>
+<p>變數<code>c</code>已經存放在記憶體中但不能使用，</p>
+<p>必須等到變數<code>c</code>在區塊中被宣告才能使用。</p>
+<p>(2)<code>let</code>的作用域為區塊範圍(block scoping)，</p>
+<p>當<code>let</code>在區塊中被宣告就只能在區塊裡面使用，</p>
+<p>區塊通常定義為大括號內({})，</p>
+<p>像<code>function</code>、<code>if</code> 或 <code>for</code>的大括號內。</p>
+<p><strong>此系列爲線上課程：<a href="https://www.udemy.com/course/javascriptjs/" target="_blank" rel="noopener">JavaScript 全攻略：克服 JS 的奇怪部分</a>上課內容筆記</strong></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://plumage29.github.io/JavaScript/2019/12/17/javascript-weird-7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -373,8 +533,8 @@
 
       
         
-          <h3 id="Scope-Chain-範圍鏈"><a href="#Scope-Chain-範圍鏈" class="headerlink" title="Scope Chain(範圍鏈)"></a>Scope Chain(範圍鏈)</h3><p>每個執行環境都有一個參照到它的外部環境(外部參照)，</p>
-<p>而外部參造會跟詞彙環境(程式碼實際寫在哪個位置)有所關聯。</p>
+          <h3 id="Scope-Chain-範圍鏈"><a href="#Scope-Chain-範圍鏈" class="headerlink" title="Scope Chain(範圍鏈)"></a>Scope Chain(範圍鏈)</h3><p>每個執行環境都有一個參照指到它的外部環境(外部參照)，</p>
+<p>而外部參照會跟詞彙環境(程式碼實際寫在哪個位置)有所關聯。</p>
 <p>我們試著想看看下列的程式碼執行之後會印出什麼值呢？</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(myVar);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> myVar = <span class="number">2</span>;</span><br><span class="line">    b();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> myVar = <span class="number">1</span>;</span><br><span class="line">a();</span><br></pre></td></tr></table></figure>
           <!--noindex-->
@@ -1673,168 +1833,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://plumage29.github.io/JavaScript/2019/09/18/javascript-weird-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="plumage">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/plumage.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="plumage">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/JavaScript/2019/09/18/javascript-weird-1/" itemprop="url">[JS筆記] 語法解析器、執行環境與詞彙環境</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-09-18T09:49:24+08:00">
-                2019-09-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/JavaScript/2019/09/18/javascript-weird-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="JavaScript/2019/09/18/javascript-weird-1/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>第一篇先記錄一些關於JavaScript的名詞解釋,</p>
-<p>之後會不斷的遇到這些觀念,</p>
-<p>這些名詞聽起來好像很複雜其實都不難懂,</p>
-<p>因此我們先來瞭解這些名詞的意義吧！</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/JavaScript/2019/09/18/javascript-weird-1/#more" rel="contents">
-              閱讀全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1880,7 +1885,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -1902,7 +1907,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">標籤</span>
                 
               </div>
@@ -1939,7 +1944,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

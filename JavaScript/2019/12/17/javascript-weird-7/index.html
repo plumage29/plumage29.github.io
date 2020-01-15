@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="Scope Chain(範圍鏈)每個執行環境都有一個參照到它的外部環境(外部參照)， 而外部參造會跟詞彙環境(程式碼實際寫在哪個位置)有所關聯。 我們試著想看看下列的程式碼執行之後會印出什麼值呢？ 1234567891011function b() &amp;#123;    console.log(myVar);&amp;#125;function a() &amp;#123;    var myVar = 2;">
+<meta name="description" content="Scope Chain(範圍鏈)每個執行環境都有一個參照指到它的外部環境(外部參照)， 而外部參照會跟詞彙環境(程式碼實際寫在哪個位置)有所關聯。 我們試著想看看下列的程式碼執行之後會印出什麼值呢？ 1234567891011function b() &amp;#123;    console.log(myVar);&amp;#125;function a() &amp;#123;    var myVar = 2;">
 <meta name="keywords" content="JavaScript,scope chain">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[JS筆記] 範圍鏈">
 <meta property="og:url" content="http://plumage29.github.io/JavaScript/2019/12/17/javascript-weird-7/index.html">
 <meta property="og:site_name" content="plumage">
-<meta property="og:description" content="Scope Chain(範圍鏈)每個執行環境都有一個參照到它的外部環境(外部參照)， 而外部參造會跟詞彙環境(程式碼實際寫在哪個位置)有所關聯。 我們試著想看看下列的程式碼執行之後會印出什麼值呢？ 1234567891011function b() &amp;#123;    console.log(myVar);&amp;#125;function a() &amp;#123;    var myVar = 2;">
+<meta property="og:description" content="Scope Chain(範圍鏈)每個執行環境都有一個參照指到它的外部環境(外部參照)， 而外部參照會跟詞彙環境(程式碼實際寫在哪個位置)有所關聯。 我們試著想看看下列的程式碼執行之後會印出什麼值呢？ 1234567891011function b() &amp;#123;    console.log(myVar);&amp;#125;function a() &amp;#123;    var myVar = 2;">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="http://plumage29.github.io/JavaScript/2019/12/17/javascript-weird-7/scope-chain.png">
-<meta property="og:updated_time" content="2019-12-25T13:34:57.427Z">
+<meta property="og:updated_time" content="2019-12-25T13:43:09.150Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[JS筆記] 範圍鏈">
-<meta name="twitter:description" content="Scope Chain(範圍鏈)每個執行環境都有一個參照到它的外部環境(外部參照)， 而外部參造會跟詞彙環境(程式碼實際寫在哪個位置)有所關聯。 我們試著想看看下列的程式碼執行之後會印出什麼值呢？ 1234567891011function b() &amp;#123;    console.log(myVar);&amp;#125;function a() &amp;#123;    var myVar = 2;">
+<meta name="twitter:description" content="Scope Chain(範圍鏈)每個執行環境都有一個參照指到它的外部環境(外部參照)， 而外部參照會跟詞彙環境(程式碼實際寫在哪個位置)有所關聯。 我們試著想看看下列的程式碼執行之後會印出什麼值呢？ 1234567891011function b() &amp;#123;    console.log(myVar);&amp;#125;function a() &amp;#123;    var myVar = 2;">
 <meta name="twitter:image" content="http://plumage29.github.io/JavaScript/2019/12/17/javascript-weird-7/scope-chain.png">
 
 
@@ -376,8 +376,8 @@
       
 
       
-        <h3 id="Scope-Chain-範圍鏈"><a href="#Scope-Chain-範圍鏈" class="headerlink" title="Scope Chain(範圍鏈)"></a>Scope Chain(範圍鏈)</h3><p>每個執行環境都有一個參照到它的外部環境(外部參照)，</p>
-<p>而外部參造會跟詞彙環境(程式碼實際寫在哪個位置)有所關聯。</p>
+        <h3 id="Scope-Chain-範圍鏈"><a href="#Scope-Chain-範圍鏈" class="headerlink" title="Scope Chain(範圍鏈)"></a>Scope Chain(範圍鏈)</h3><p>每個執行環境都有一個參照指到它的外部環境(外部參照)，</p>
+<p>而外部參照會跟詞彙環境(程式碼實際寫在哪個位置)有所關聯。</p>
 <p>我們試著想看看下列的程式碼執行之後會印出什麼值呢？</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(myVar);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> myVar = <span class="number">2</span>;</span><br><span class="line">    b();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> myVar = <span class="number">1</span>;</span><br><span class="line">a();</span><br></pre></td></tr></table></figure>
 
@@ -385,16 +385,12 @@
 
 <p>例如上述的程式碼中函式b的詞彙環境在全域環境之上，</p>
 <p>跟變數myVar = 1是同等級。</p>
-<img src="/JavaScript/2019/12/17/javascript-weird-7/scope-chain.png">
-
-<p>JavaScript注重詞彙環境，</p>
-<p>當你需要某個執行環境的程式碼的變數，</p>
-<p>但它在這個執行環境中無法找到變數時便會到外部環境尋找該變數，</p>
-<p>而它指向的外部環境會依據函式實際上的位置而有不同。</p>
 <p>呼叫函式會產生執行環境，</p>
 <p>此時JavaScript依據程式碼物理上的位置(基於實際位置)為執行環境創造外部參照，</p>
-<p>例如上述程式碼中b的外部參照為全域執行環境，</p>
-<p>a的外部參照也是全域執行環境。</p>
+<p>例如上述程式碼中<code>function b</code>的外部參照為全域執行環境，</p>
+<p><code>function a</code>的外部參照也是全域執行環境。</p>
+<img src="/JavaScript/2019/12/17/javascript-weird-7/scope-chain.png">
+
 <p>如果有許多函式互相呼叫，則JavaScript會不斷的在範圍鏈中尋找，</p>
 <p>不斷的往外部參照一個個尋找直到全域等級(直到找到或找不到為止)，</p>
 <p>而這整條鏈子就稱為範圍鏈。</p>
@@ -405,16 +401,22 @@
 <p>Scope: where a variable is available in your code and if it’s truly the same variable, or a new copy.</p>
 </blockquote>
 <p>因此上述的程式碼中，</p>
-<p>雖然<code>function b</code>裡並沒有定義變數myVar，</p>
-<p>但它會往外部參照尋找，而b的外部參照是全域環境，</p>
-<p>並且在全域環境中找到myVar因此印出1這個値。</p>
+<p>雖然<code>function b</code>裡並沒有定義變數<code>myVar</code>，</p>
+<p>但它會往外部參照尋找，而<code>function b</code>的外部參照是全域環境，</p>
+<p>並且在全域環境中找到<code>myVar</code>因此印出1這個値。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(myVar);</span><br><span class="line">    &#125;</span><br><span class="line">    b();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> myVar = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">a();</span><br></pre></td></tr></table></figure>
 
-<p>如果將function b定義在function a之內，</p>
-<p>則b的詞彙環境改變，它的外部參照將指向a的執行環境，</p>
-<p>但在a的執行環境中仍然沒有定義myVar</p>
-<p>因此再找向a的外部參照全域執行環境，</p>
-<p>最後找到myVar，因此印出的値為1。</p>
+<p>如果將<code>function b</code>定義在<code>function a</code>之內，</p>
+<p>則<code>function b</code>的詞彙環境改變，它的外部參照將指向<code>function a</code>的執行環境，</p>
+<p>但在<code>function a</code>的執行環境中仍然沒有定義myVar，</p>
+<p>因此再找向<code>function a</code>的外部參照全域執行環境，</p>
+<p>最後找到<code>myVar</code>，因此印出的値為1。</p>
+<h3 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h3><p>JavaScript注重詞彙環境，</p>
+<p>當你需要某個執行環境的程式碼的變數，</p>
+<p>但它在這個執行環境中無法找到變數時便會到外部環境尋找該變數，</p>
+<p>而它指向的外部環境會依據函式實際上的位置而有不同。</p>
+<hr>
+<p><strong>此系列爲線上課程：<a href="https://www.udemy.com/course/javascriptjs/" target="_blank" rel="noopener">JavaScript 全攻略：克服 JS 的奇怪部分</a>上課內容筆記</strong></p>
 
       
     </div>
@@ -456,6 +458,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/uncategorized/2019/12/25/javascript-weird-8/" rel="prev" title="[JS筆記] 範圍、ES6與let">
+                [JS筆記] 範圍、ES6與let <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -544,7 +550,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -566,7 +572,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">標籤</span>
                 
               </div>
@@ -599,7 +605,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Scope-Chain-範圍鏈"><span class="nav-number">1.</span> <span class="nav-text">Scope Chain(範圍鏈)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Scope-Chain-範圍鏈"><span class="nav-number">1.</span> <span class="nav-text">Scope Chain(範圍鏈)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#結論"><span class="nav-number">2.</span> <span class="nav-text">結論</span></a></li></ol></div>
             
 
           </div>
@@ -619,7 +625,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
